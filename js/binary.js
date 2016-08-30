@@ -63582,7 +63582,7 @@ pjax_config_page_require_auth('user/change_password', function() {
         var profit_table_data = ProfitTable.getProfitTabletData(transaction);
         var plType = (profit_table_data.pl >= 0) ? "profit" : "loss";
 
-        var data = [profit_table_data.buyDate, '<span' + showTooltip(profit_table_data.app_id, oauth_apps[profit_table_data.app_id]) + '>' + profit_table_data.ref + '</span>', addComma(profit_table_data.payout), '', addComma(profit_table_data.buyPrice), profit_table_data.sellDate, profit_table_data.sellPrice, profit_table_data.pl, ''];
+        var data = [profit_table_data.buyDate, '<span' + showTooltip(profit_table_data.app_id, oauth_apps[profit_table_data.app_id]) + '>' + profit_table_data.ref + '</span>', addComma(Number(profit_table_data.payout).toFixed(0)), '', addComma(Number(profit_table_data.buyPrice).toFixed(0)), profit_table_data.sellDate, profit_table_data.sellPrice, profit_table_data.pl, ''];
         var $row = Table.createFlexTableRow(data, cols, "data");
 
         $row.children(".buy-date").addClass("pre");
