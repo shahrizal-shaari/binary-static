@@ -45,7 +45,7 @@ var StatementUI = (function(){
 
         var jpClient = japanese_client();
 
-        var $statementRow = Table.createFlexTableRow([statement_data.date, '<span' + showTooltip(statement_data.app_id, oauth_apps[statement_data.app_id]) + '>' + statement_data.ref + '</span>', isNaN(statement_data.payout) ? '-' : format_number(jpCLient, statement_data.payout), statement_data.action, '', format_number(jpClient, statement_data.amount), format_number(jpClient, statement_data.balance), ''], columns, "data");
+        var $statementRow = Table.createFlexTableRow([statement_data.date, '<span' + showTooltip(statement_data.app_id, oauth_apps[statement_data.app_id]) + '>' + statement_data.ref + '</span>', isNaN(statement_data.payout) ? '-' : format_number(jpClient, statement_data.payout), statement_data.action, '', format_number(jpClient, statement_data.amount), format_number(jpClient, statement_data.balance), ''], columns, "data");
         $statementRow.children(".credit").addClass(creditDebitType);
         $statementRow.children(".date").addClass("pre");
         $statementRow.children(".desc").html(statement_data.desc + "<br>");
