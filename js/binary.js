@@ -63582,7 +63582,9 @@ pjax_config_page_require_auth('user/change_password', function() {
 
         var total = accTotal + currentTotal;
 
-        $("#pl-day-total > .pl").text(addComma(Number(total).toFixed(2)));
+        var jpClient = japanese_client();
+
+        $("#pl-day-total > .pl").text(jpClient ? addComma(Number(total).toFixed(0)) : addComma(Number(total).toFixed(2)));
 
         var subTotalType = (total >= 0 ) ? "profit" : "loss";
         $("#pl-day-total > .pl").removeClass("profit").removeClass("loss");
