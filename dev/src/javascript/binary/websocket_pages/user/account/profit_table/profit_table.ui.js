@@ -61,7 +61,7 @@ var ProfitTableUI = (function(){
 
         var jpClient = japanese_client();
 
-        $("#pl-day-total > .pl").text(jpClient ? format_number(jpClient, total) : addComma(Number(total).toFixed(2)));
+        $("#pl-day-total > .pl").text(jpClient ? addComma(Number(total)) : addComma(Number(total).toFixed(2)));
 
         var subTotalType = (total >= 0 ) ? "profit" : "loss";
         $("#pl-day-total > .pl").removeClass("profit").removeClass("loss");
