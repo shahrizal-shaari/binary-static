@@ -52773,7 +52773,7 @@ var Compatibility = (function() {
 }
 
 function format_number(jp_client, amount) {
-    if(jpClient) { // remove decimal points for JPY and add comma.
+    if(jp_client) { // remove decimal points and add comma.
         amount = amount.replace(/\.\d+$/, '');
         amount = amount.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
@@ -63595,7 +63595,7 @@ pjax_config_page_require_auth('user/change_password', function() {
 
         var jpClient = japanese_client();
 
-        var data = [profit_table_data.buyDate, '<span' + showTooltip(profit_table_data.app_id, oauth_apps[profit_table_data.app_id]) + '>' + profit_table_data.ref + '</span>', addComma(Number(profit_table_data.payout).toFixed(0)), '', addComma(Number(profit_table_data.buyPrice).toFixed(0)), profit_table_data.sellDate, profit_table_data.sellPrice, profit_table_data.pl, ''];
+        var data = [profit_table_data.buyDate, '<span' + showTooltip(profit_table_data.app_id, oauth_apps[profit_table_data.app_id]) + '>' + profit_table_data.ref + '</span>', format_number(jpClient, profit_table_data.payout), '', profit_table_data.buyPrice, profit_table_data.sellDate, profit_table_data.sellPrice, profit_table_data.pl, ''];
         var $row = Table.createFlexTableRow(data, cols, "data");
 
         $row.children(".buy-date").addClass("pre");

@@ -12,7 +12,7 @@ function format_money(currency, amount) {
 }
 
 function format_number(jp_client, amount) {
-    if(jpClient) { // remove decimal points for JPY and add comma.
+    if(jp_client) { // remove decimal points and add comma.
         amount = amount.replace(/\.\d+$/, '');
         amount = amount.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
