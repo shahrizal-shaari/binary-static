@@ -3925,6 +3925,9 @@ body.JA #language_select {
 body.JA #header #menu-top li {
   white-space: nowrap;
 }
+body.JA #profit-table .buy-price {
+  white-space: nowrap;
+}
 
 /*Vietnamese Language */
 body.VI #legal-tab li.tm-li-2 {
