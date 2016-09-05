@@ -3928,6 +3928,9 @@ body.JA #header #menu-top li {
 body.JA #profit-table .buy-price {
   white-space: nowrap;
 }
+body.JA #profit-table .sell-price {
+  white-space: nowrap;
+}
 
 /*Vietnamese Language */
 body.VI #legal-tab li.tm-li-2 {
