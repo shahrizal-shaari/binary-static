@@ -4022,6 +4022,9 @@ body.JA #header #menu-top li {
 body.JA #profit-table .buy-price, body.JA #profit-table .sell-price, body.JA #profit-table .payout, body.JA #profit-table .pl.loss {
   white-space: nowrap;
 }
+body.JA #statement-table .payout {
+  white-space: nowrap;
+}
 
 /*Vietnamese Language */
 body.VI #legal-tab li.tm-li-2 {
