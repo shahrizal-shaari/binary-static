@@ -4025,6 +4025,9 @@ body.JA #profit-table .buy-price {
 body.JA #profit-table .sell-price {
   white-space: nowrap;
 }
+body.JA #profit-table .pl.loss {
+  white-space: nowrap;
+}
 
 /*Vietnamese Language */
 body.VI #legal-tab li.tm-li-2 {
