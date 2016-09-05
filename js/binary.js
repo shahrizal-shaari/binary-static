@@ -52772,13 +52772,23 @@ var Compatibility = (function() {
     return symbol + amount;
 }
 
-function format_number(jp_client, amount) {
-    if(jp_client) { // remove decimal points and add comma.
+function format_money_jp(currency, amount) {
+    var sign = '';
+    if(currency === 'JPY') { // remove decimal points and add comma.
+        if (Number(amount) < 0 ) {
+           sign = '-';
+        }
+
         amount = amount.replace(/\.\d+$/, '');
+        amount = amount.replace('-','');
         amount = amount.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    return amount;
+    var symbol = format_money.map[currency];
+    if (symbol === undefined) {
+        return currency + ' ' + amount;
+    }
+    return sign + symbol + amount;
 }
 
 
@@ -52796,7 +52806,7 @@ format_money.map = {
 if (typeof module !== 'undefined') {
     module.exports = {
         format_money: format_money,
-        format_number : format_number,
+        format_money_jp : format_money_jp,
     };
 }
 
@@ -63584,7 +63594,7 @@ pjax_config_page_require_auth('user/change_password', function() {
 
         var jpClient = japanese_client();
 
-        $("#pl-day-total > .pl").text(jpClient ? format_number(jpClient, total.toString()) : addComma(Number(total).toFixed(2)));
+        $("#pl-day-total > .pl").text(jpClient ? format_money_jp(TUser.get().currency, total.toString()) : addComma(Number(total).toFixed(2)));
 
         var subTotalType = (total >= 0 ) ? "profit" : "loss";
         $("#pl-day-total > .pl").removeClass("profit").removeClass("loss");
@@ -63597,7 +63607,7 @@ pjax_config_page_require_auth('user/change_password', function() {
 
         var jpClient = japanese_client();
 
-        var data = [profit_table_data.buyDate, '<span' + showTooltip(profit_table_data.app_id, oauth_apps[profit_table_data.app_id]) + '>' + profit_table_data.ref + '</span>', format_number(jpClient, profit_table_data.payout), '', format_number(jpClient, profit_table_data.buyPrice), profit_table_data.sellDate, format_number(jpClient, profit_table_data.sellPrice), format_number(jpClient, profit_table_data.pl), ''];
+        var data = [profit_table_data.buyDate, '<span' + showTooltip(profit_table_data.app_id, oauth_apps[profit_table_data.app_id]) + '>' + profit_table_data.ref + '</span>', format_money_jp(TUser.get().currency, profit_table_data.payout) , '', format_money_jp(TUser.get().currency, profit_table_data.buyPrice), profit_table_data.sellDate, format_money_jp(TUser.get().currency, profit_table_data.sellPrice) , format_money_jp(TUser.get().currency, profit_table_data.pl), ''];
         var $row = Table.createFlexTableRow(data, cols, "data");
 
         $row.children(".buy-date").addClass("pre");
@@ -66332,7 +66342,7 @@ pjax_config_page_require_auth("settings/detailsws", function() {
 
         var jpClient = japanese_client();
 
-        var $statementRow = Table.createFlexTableRow([statement_data.date, '<span' + showTooltip(statement_data.app_id, oauth_apps[statement_data.app_id]) + '>' + statement_data.ref + '</span>', isNaN(statement_data.payout) ? '-' : format_number(jpClient, statement_data.payout), statement_data.action, '', format_number(jpClient, statement_data.amount), format_number(jpClient, statement_data.balance), ''], columns, "data");
+        var $statementRow = Table.createFlexTableRow([statement_data.date, '<span' + showTooltip(statement_data.app_id, oauth_apps[statement_data.app_id]) + '>' + statement_data.ref + '</span>', isNaN(statement_data.payout) ? '-' : (jpClient ? format_money_jp(TUser.get().currency, statement_data.payout) : statement_data.payout ), statement_data.action, '', jpClient ? format_money_jp(TUser.get().currency, statement_data.amount) : statement_data.amount, jpClient ? format_money_jp(TUser.get().currency, statement_data.balance) : statement_data.balance, ''], columns, "data");
         $statementRow.children(".credit").addClass(creditDebitType);
         $statementRow.children(".date").addClass("pre");
         $statementRow.children(".desc").html(statement_data.desc + "<br>");
