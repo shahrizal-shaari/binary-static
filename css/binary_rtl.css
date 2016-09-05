@@ -3925,7 +3925,7 @@ body.JA #language_select {
 body.JA #header #menu-top li {
   white-space: nowrap;
 }
-body.JA #profit-table .buy-price, body.JA #profit-table .sell-price, body.JA #profit-table .payout, body.JA #profit-table .pl.loss {
+body.JA #profit-table #statement-table .buy-price, body.JA #profit-table #statement-table .sell-price, body.JA #profit-table #statement-table .payout, body.JA #profit-table #statement-table .pl.loss {
   white-space: nowrap;
 }
 body.JA #statement-table .payout {
