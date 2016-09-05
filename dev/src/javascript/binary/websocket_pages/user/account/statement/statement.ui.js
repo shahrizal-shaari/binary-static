@@ -17,7 +17,9 @@ var StatementUI = (function(){
             Content.localize().textDetails
         ];
 
-        header[6] = header[6] + (TUser.get().currency ? " (" + TUser.get().currency + ")" : "");
+        var jpClient = japanese_client();
+
+        header[6] = header[6] + (jpClient ? "" : (TUser.get().currency ? " (" + TUser.get().currency + ")" : ""));
 
         var metadata = {
             id: tableID,
