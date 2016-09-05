@@ -18,7 +18,9 @@ var ProfitTableUI = (function(){
             Content.localize().textDetails
         ];
 
-        header[7] = header[7] + (TUser.get().currency ? " (" + TUser.get().currency + ")" : "");
+        var jpClient = japanese_client();
+
+        header[7] = header[7] + (jpClient ? "" : (TUser.get().currency ? " (" + TUser.get().currency + ")" : ""));
 
         var footer = [Content.localize().textTotalProfitLoss, "", "", "", "", "", "", "", ""];
 
