@@ -50879,15 +50879,7 @@ Header.prototype = {
         $(".login-id-list").html(loginid_select);
     },
     register_dynamic_links: function() {
-        var logged_in_url = this.client.is_logged_in ?
-            page.url.url_for('trading') :
-            page.url.url_for('');
-
-       $('#logo').attr('href', logged_in_url).on('click', function(event) {
-           event.preventDefault();
-           load_with_pjax(logged_in_url);
-       }).addClass('unbind_later');
-
+       $('#logo').attr('href', page.url.url_for(this.client.is_logged_in ? 'trading' : ''));
        this.menu.register_dynamic_links();
     },
     start_clock_ws: function() {
@@ -54945,14 +54937,13 @@ pjax_config_page('/open-positions/job-details', function() {
     };
 });
 
-;pjax_config_page('/\?.+|/home', function() {
+;pjax_config_page('/home', function() {
     return {
         onLoad: function() {
-            if(/^(\/|\/home)$/i.test(window.location.pathname)) {
-                page.client.redirect_if_login();
+            if(!page.client.redirect_if_login()) {
+                check_login_hide_signup();
+                submit_email();
             }
-            check_login_hide_signup();
-            submit_email();
         }
     };
 });
@@ -65721,7 +65712,8 @@ pjax_config_page_require_auth("settings/detailsws", function() {
 
         var jpClient = japanese_client();
 
-        var $statementRow = Table.createFlexTableRow([statement_data.date, '<span' + showTooltip(statement_data.app_id, oauth_apps[statement_data.app_id]) + '>' + statement_data.ref + '</span>', isNaN(statement_data.payout) ? '-' : (jpClient ? format_money_jp(TUser.get().currency, statement_data.payout) : statement_data.payout ), statement_data.action, '', jpClient ? format_money_jp(TUser.get().currency, statement_data.amount) : statement_data.amount, jpClient ? format_money_jp(TUser.get().currency, statement_data.balance) : statement_data.balance, ''], columns, "data");
+        var $statementRow = Table.createFlexTableRow([statement_data.date, '<span' + showTooltip(statement_data.app_id, oauth_apps[statement_data.app_id]) + '>' + statement_data.ref + '</span>', isNaN(statement_data.payout) ? '-' : (jpClient ? format_money_jp(TUser.get().currency, statement_data.payout) : statement_data.payout ), text.localize(statement_data.action), '', jpClient ? format_money_jp(TUser.get().currency, statement_data.amount) : statement_data.amount, jpClient ? format_money_jp(TUser.get().currency, statement_data.balance) : statement_data.balance, ''], columns, "data");
+        
         $statementRow.children(".credit").addClass(creditDebitType);
         $statementRow.children(".date").addClass("pre");
         $statementRow.children(".desc").html(statement_data.desc + "<br>");
