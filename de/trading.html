@@ -55,14 +55,14 @@
           <link rel="alternate" href="/binary-static/zh_cn/trading.html" hreflang="ZH_CN" /> 
           <link rel="alternate" href="/binary-static/zh_tw/trading.html" hreflang="ZH_TW" /> 
         
-         <link rel="stylesheet" href="/binary-static/css/binary.min.css?sw40wsg0">
-         <link rel="stylesheet" href="https://style.binary.com/binary.css?sw40wsg0">
+         <link rel="stylesheet" href="/binary-static/css/binary.min.css?nne9o5i9">
+         <link rel="stylesheet" href="https://style.binary.com/binary.css?nne9o5i9">
         
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.prototype.includes,String.prototype.includes&unknown=polyfill"></script>
 <script>
     //A global variable required to initialize Page object.
-    window.page_params = {settings: {"image_link":{"livechaticon":"/binary-static/images/pages/contact/chat-icon.svg","hourglass":"/binary-static/images/common/hourglass_1.gif","up":"/binary-static/images/javascript/up_arrow_1.gif","down":"/binary-static/images/javascript/down_arrow_1.gif","calendar_icon":"/binary-static/images/common/calendar_icon_1.png"},"enable_relative_barrier":"true","arr_all_currencies":["USD","EUR","GBP","AUD"],"valid_loginids":"MX|MF|VRTC|MLT|CR|FOG|VRTJ|JP","broker":"CR","streaming_server":"www.binary.com"}};
-</script>  <script src='/binary-static/js/binary.js?sw40wsg0' defer async></script>
+    window.page_params = {settings: {"image_link":{"hourglass":"/binary-static/images/common/hourglass_1.gif","livechaticon":"/binary-static/images/pages/contact/chat-icon.svg","down":"/binary-static/images/javascript/down_arrow_1.gif","up":"/binary-static/images/javascript/up_arrow_1.gif","calendar_icon":"/binary-static/images/common/calendar_icon_1.png"},"arr_all_currencies":["USD","EUR","GBP","AUD"],"enable_relative_barrier":"true","streaming_server":"www.binary.com","valid_loginids":"MX|MF|VRTC|MLT|CR|FOG|VRTJ|JP","broker":"CR"}};
+</script>  <script src='/binary-static/js/binary.js?nne9o5i9' defer async></script>
     </head>
 
 
@@ -279,7 +279,13 @@
             </li>  <li id="topMenuPaymentAgent" class="item invisible">
                 <a class="pjaxload link pjaxload" href="/binary-static/de/paymentagent/transferws.html">Zahlungsagent</a>
                 
-            </li>  </ul>
+            </li>  <li class="ja-hide">
+                <a class="pjaxload" href="/binary-static/de/trading.html">Handel</a>
+            </li>
+            <li class="all-hide ja-show-block">
+                <a class="pjaxload" href="/binary-static/de/jptrading.html">Handel</a>
+            </li>
+        </ul>
     </div>
 </div>
     <!-- FlushHead -->
@@ -493,14 +499,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <p>Keine offenen Positionen.</p>
         </div>
 
-        <table class="flex-table" id="portfolio-table">
+        <table id="portfolio-table">
             <thead>
-                <tr class="flex-tr">
-                    <th class="ref flex-tr-child">Ref.</th>
-                    <th class="payout flex-tr-child">Mögliche Auszahlung</th>
-                    <th class="details flex-tr-child">Kontraktdaten</th>
-                    <th class="purchase flex-tr-child">Kauf</th>
-                    <th class="indicative flex-tr-child">Indikativ</th>
+                <tr>
+                    <th class="ref">Ref.</th>
+                    <th class="payout">Mögliche Auszahlung</th>
+                    <th class="details">Kontraktdaten</th>
+                    <th class="purchase">Kauf</th>
+                    <th class="indicative">Indikativ</th>
                     <th class="button"></th>
                 </tr>
             </thead>
@@ -508,10 +514,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <tbody id="portfolio-body"></tbody>
 
             <tfoot>
-                <tr class="flex-tr">
-                    <th class="ref flex-tr-child" colspan="3"></th>
-                    <th class="cost flex-tr-child" id="cost-of-open-positions"></th>
-                    <th class="value flex-tr-child" id="value-of-open-positions" colspan="2"></th>
+                <tr>
+                    <th class="ref" colspan="3"></th>
+                    <th class="cost" id="cost-of-open-positions"></th>
+                    <th class="value" id="value-of-open-positions" colspan="2"></th>
                 </tr>
             </tfoot>
         </table>
@@ -522,7 +528,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div id="contract_prices_container" class="col row-inner">
          <div id="contract_confirmation_container" class="overlay_container col">
-            <a class="close" id="close_confirmation_container">x</a>
+            <a class="close" id="close_confirmation_container"></a>
             <div id="confirmation_message_container">
                <div id="confirmation_message">
                   <h3 id="contract_purchase_heading"></h3>

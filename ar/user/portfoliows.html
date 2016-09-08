@@ -55,14 +55,14 @@
           <link rel="alternate" href="/binary-static/zh_cn/user/portfoliows.html" hreflang="ZH_CN" /> 
           <link rel="alternate" href="/binary-static/zh_tw/user/portfoliows.html" hreflang="ZH_TW" /> 
         
-         <link rel="stylesheet" href="/binary-static/css/binary_rtl.min.css?sw40wsg0">
-         <link rel="stylesheet" href="https://style.binary.com/binary.css?sw40wsg0">
+         <link rel="stylesheet" href="/binary-static/css/binary_rtl.min.css?nne9o5i9">
+         <link rel="stylesheet" href="https://style.binary.com/binary.css?nne9o5i9">
         
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.prototype.includes,String.prototype.includes&unknown=polyfill"></script>
 <script>
     //A global variable required to initialize Page object.
-    window.page_params = {settings: {"image_link":{"calendar_icon":"/binary-static/images/common/calendar_icon_1.png","up":"/binary-static/images/javascript/up_arrow_1.gif","down":"/binary-static/images/javascript/down_arrow_1.gif","livechaticon":"/binary-static/images/pages/contact/chat-icon.svg","hourglass":"/binary-static/images/common/hourglass_1.gif"},"arr_all_currencies":["USD","EUR","GBP","AUD"],"enable_relative_barrier":"true","streaming_server":"www.binary.com","valid_loginids":"MX|MF|VRTC|MLT|CR|FOG|VRTJ|JP","broker":"CR"}};
-</script>  <script src='/binary-static/js/binary.js?sw40wsg0' defer async></script>
+    window.page_params = {settings: {"broker":"CR","valid_loginids":"MX|MF|VRTC|MLT|CR|FOG|VRTJ|JP","streaming_server":"www.binary.com","enable_relative_barrier":"true","arr_all_currencies":["USD","EUR","GBP","AUD"],"image_link":{"up":"/binary-static/images/javascript/up_arrow_1.gif","calendar_icon":"/binary-static/images/common/calendar_icon_1.png","down":"/binary-static/images/javascript/down_arrow_1.gif","livechaticon":"/binary-static/images/pages/contact/chat-icon.svg","hourglass":"/binary-static/images/common/hourglass_1.gif"}}};
+</script>  <script src='/binary-static/js/binary.js?nne9o5i9' defer async></script>
     </head>
 
 
@@ -279,7 +279,13 @@
             </li>  <li id="topMenuPaymentAgent" class="item invisible">
                 <a class="pjaxload link pjaxload" href="/binary-static/ar/paymentagent/transferws.html">وكيل دفع</a>
                 
-            </li>  </ul>
+            </li>  <li class="ja-hide">
+                <a class="pjaxload" href="/binary-static/ar/trading.html">التداول</a>
+            </li>
+            <li class="all-hide ja-show-block">
+                <a class="pjaxload" href="/binary-static/ar/jptrading.html">التداول</a>
+            </li>
+        </ul>
     </div>
 </div>
     <!-- FlushHead -->
@@ -327,14 +333,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <p>لا يوجد معاملات مفتوحة.</p>
         </div>
 
-        <table class="flex-table" id="portfolio-table">
+        <table id="portfolio-table">
             <thead>
-                <tr class="flex-tr">
-                    <th class="ref flex-tr-child">مرجع</th>
-                    <th class="payout flex-tr-child">المردودات المحتملة</th>
-                    <th class="details flex-tr-child">تفاصيل العقد</th>
-                    <th class="purchase flex-tr-child">شراء</th>
-                    <th class="indicative flex-tr-child">ارشادي</th>
+                <tr>
+                    <th class="ref">مرجع</th>
+                    <th class="payout">المردودات المحتملة</th>
+                    <th class="details">تفاصيل العقد</th>
+                    <th class="purchase">شراء</th>
+                    <th class="indicative">ارشادي</th>
                     <th class="button"></th>
                 </tr>
             </thead>
@@ -342,10 +348,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <tbody id="portfolio-body"></tbody>
 
             <tfoot>
-                <tr class="flex-tr">
-                    <th class="ref flex-tr-child" colspan="3"></th>
-                    <th class="cost flex-tr-child" id="cost-of-open-positions"></th>
-                    <th class="value flex-tr-child" id="value-of-open-positions" colspan="2"></th>
+                <tr>
+                    <th class="ref" colspan="3"></th>
+                    <th class="cost" id="cost-of-open-positions"></th>
+                    <th class="value" id="value-of-open-positions" colspan="2"></th>
                 </tr>
             </tfoot>
         </table>
