@@ -73222,7 +73222,7 @@ pjax_config_page_require_auth("user/security/cashier_passwordws", function() {
 
 ;var JPTradePage = (function() {
 
-  var scriptUrl = 'https://binary-com.github.io/japanui/dist/bundle.js';
+  var scriptUrl = 'https://shahrizal-shaari.github.io/japanui/dist/bundle.js';
   var isJapan = false;
   var scriptReady = false;
 
