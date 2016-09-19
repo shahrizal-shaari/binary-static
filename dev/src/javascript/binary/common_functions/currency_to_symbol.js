@@ -16,7 +16,7 @@ function format_money_jp(currency, amount) {
     var updatedAmount = amount;
     if(currency === 'JPY') { // remove decimal points and add comma.
         updatedAmount = updatedAmount.replace(',','');
-        if (Number(amount) < 0 ) {
+        if (Number(updatedAmount) < 0 ) {
            sign = '-';
         }
 
