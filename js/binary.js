@@ -52916,12 +52916,11 @@ function format_money_jp(currency, amount) {
     var sign = '';
     var updatedAmount = amount;
     if(currency === 'JPY') { // remove decimal points and add comma.
-        console.log(updatedAmount + '  ' );
-        if (Number(updatedAmount) < 0 ) {
+        updatedAmount = updatedAmount.replace(',','');
+        if (Number(amount) < 0 ) {
            sign = '-';
         }
-        console.log('## ' + sign);
-   
+
         updatedAmount = updatedAmount.replace(/\.\d+$/, '').replace('-','').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
