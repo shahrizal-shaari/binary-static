@@ -69667,7 +69667,7 @@ pjax_config_page_require_auth("settings/detailsws", function() {
 
         var jpClient = japanese_client();
 
-        var $statementRow = Table.createFlexTableRow([statement_data.date, '<span' + showTooltip(statement_data.app_id, oauth_apps[statement_data.app_id]) + '>' + statement_data.ref + '</span>', isNaN(statement_data.payout) ? '-' : (jpClient ? format_money_jp(TUser.get().currency, statement_data.payout) : statement_data.payout ), text.localize(statement_data.action), '', jpClient ? format_money_jp(TUser.get().currency, statement_data.amount) : statement_data.amount, jpClient ? format_money_jp(TUser.get().currency, statement_data.balance) : statement_data.balance, ''], columns, "data");
+        var $statementRow = Table.createFlexTableRow([statement_data.date, '<span' + showTooltip(statement_data.app_id, oauth_apps[statement_data.app_id]) + '>' + statement_data.ref + '</span>', isNaN(statement_data.payout) ? '-' : (jpClient ? format_money_jp(TUser.get().currency, statement_data.payout) : statement_data.payout ), text.localize(statement_data.action), '', jpClient ? statement_data.amount : statement_data.amount, jpClient ? format_money_jp(TUser.get().currency, statement_data.balance) : statement_data.balance, ''], columns, "data");
         
         $statementRow.children(".credit").addClass(creditDebitType);
         $statementRow.children(".date").addClass("pre");
@@ -73222,7 +73222,7 @@ pjax_config_page_require_auth("user/security/cashier_passwordws", function() {
 
 ;var JPTradePage = (function() {
 
-  var scriptUrl = 'https://shahrizal-shaari.github.io/japanui/dist/bundle.js';
+  var scriptUrl = 'https://binary-com.github.io/japanui/dist/bundle.js';
   var isJapan = false;
   var scriptReady = false;
 
