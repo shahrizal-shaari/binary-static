@@ -54320,6 +54320,7 @@
 	    var sign = '';
 	    var updatedAmount = amount;
 	    if(currency === 'JPY') { // remove decimal points and add comma.
+	
 	        updatedAmount = updatedAmount.replace(/,/g,'');
 	        if (Number(updatedAmount) < 0 ) {
 	           sign = '-';
